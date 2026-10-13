@@ -78,8 +78,8 @@ Model ID: `aurick-anwar/irl-chess-piece-detector-1-rfdetr-medium-t1`
 
 - [x] Collect and label a dataset from my own board
 - [x] Train the RF-DETR piece detector
-- [ ] Live webcam inference
-- [ ] Board corner calibration and square mapping
+- [x] Live webcam inference
+- [x] Board corner calibration and square mapping
 - [ ] Move inference with legal-move matching
 - [ ] Stockfish integration and blunder alerts
 - [ ] On-screen overlay: best-move arrow, eval bar, blunder flash
