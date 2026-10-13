@@ -25,7 +25,7 @@ box_annotator = sv.BoxAnnotator()
 label_annotator = sv.LabelAnnotator(text_scale=0.5)
 
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
 
 detections = sv.Detections.empty() #start at no pieces found
 last_sent = 0 #last time model was called
