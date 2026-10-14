@@ -8,6 +8,7 @@ import cv2
 import supervision as sv
 from inference_sdk import InferenceHTTPClient
 from dotenv import load_dotenv
+from board import load_homography, build_board, print_board, draw_grid, draw_points
 
 load_dotenv()
 
@@ -25,15 +26,19 @@ box_annotator = sv.BoxAnnotator()
 label_annotator = sv.LabelAnnotator(text_scale=0.5)
 
 
-cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 detections = sv.Detections.empty() #start at no pieces found
 last_sent = 0 #last time model was called
 
 
-
+H = load_homography()
+import json
+with open("corners.json") as f:
+    saved_corners = json.load(f)
 while True:
     ref, frame = cap.read()
+    print("Calibrate frame size:", frame.shape)
     if not ref:
         break
     now = time.time()# current time in frame
@@ -42,14 +47,17 @@ while True:
         detections = sv.Detections.from_inference(result)#converts the result to a detections object
         detections = detections[detections.confidence >= CONFIDENCE]#filters out detections with confidence less than 0.5
         last_sent = now#updates the last time the model was called
-    
+        board = build_board(detections, H)
+        print_board(board)
     labels = []
     for name, conf in zip(detections.data["class_name"], detections.confidence):
         labels.append(f"{name} {conf:.2f}")
-    annotated = box_annotator.annotate(frame.copy(),detections)#draws a bounding box around the detected pieces
-    annotated = label_annotator.annotate(annotated, detections ,labels=labels)#adds a label to the detected pieces
+    annotated = box_annotator.annotate(frame.copy(), detections)
+    annotated = draw_grid(annotated, H)
+    annotated = draw_points(annotated, detections, H)
 
-    
+    for (x, y) in saved_corners:
+        cv2.circle(annotated, (x, y), 8, (255, 0, 255), -1)
     cv2.imshow("Chess Detection", annotated)#displays the annotated frame
 
     
