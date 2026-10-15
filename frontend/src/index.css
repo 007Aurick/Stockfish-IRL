@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-display: "Outfit", "Segoe UI", sans-serif;
+  --color-ink: #12100e;
+  --color-panel: #1c1a17;
+  --color-cream: #f4f1ea;
+  --color-muted: #a39e96;
+  --color-line: #3c3834;
+  --color-best: #8fbc55;
+  --color-inaccuracy: #e3c15a;
+  --color-mistake: #e08a3c;
+  --color-blunder: #e24b4b;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-best);
+  outline-offset: 2px;
+}
+
+.moves {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+
+@keyframes alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.alert-in {
+  animation: alert-in 280ms ease-out;
+}
+
+@keyframes move-in {
+  from {
+    background-color: rgb(143 188 85 / 0.22);
+  }
+  to {
+    background-color: rgb(255 255 255 / 0.05);
+  }
+}
+
+.move-in {
+  animation: move-in 900ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alert-in,
+  .move-in {
+    animation: none;
+  }
+}

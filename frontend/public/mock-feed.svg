@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="table" cx="50%" cy="46%" r="68%">
+      <stop offset="0%" stop-color="#5a4032"/>
+      <stop offset="70%" stop-color="#2c211b"/>
+      <stop offset="100%" stop-color="#14110f"/>
+    </radialGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a6244"/>
+      <stop offset="45%" stop-color="#6b4a32"/>
+      <stop offset="100%" stop-color="#4a3122"/>
+    </linearGradient>
+    <pattern id="squares" x="352" y="152" width="124" height="124" patternUnits="userSpaceOnUse">
+      <rect width="124" height="124" fill="#efe6d6"/>
+      <rect width="62" height="62" fill="#8d5b3c"/>
+      <rect x="62" y="62" width="62" height="62" fill="#8d5b3c"/>
+    </pattern>
+    <radialGradient id="vignette" cx="50%" cy="46%" r="72%">
+      <stop offset="58%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.62"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="1.2" stdDeviation="1" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="#100e0c"/>
+  <rect width="1200" height="800" fill="url(#table)"/>
+  <ellipse cx="600" cy="690" rx="300" ry="22" fill="#000" opacity="0.28"/>
+  <rect x="328" y="128" width="544" height="544" rx="10" fill="url(#frame)"/>
+  <rect x="344" y="144" width="512" height="512" rx="4" fill="#3a2418"/>
+  <rect x="352" y="152" width="496" height="496" fill="url(#squares)"/>
+  <rect x="352" y="152" width="496" height="70" fill="#fff" opacity="0.05"/>
+
+  <g filter="url(#shadow)" font-family="Segoe UI Emoji, Segoe UI Symbol, DejaVu Sans, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="central">
+    <text x="383" y="183">&#9820;</text>
+    <text x="445" y="183">&#9822;</text>
+    <text x="507" y="183">&#9821;</text>
+    <text x="569" y="183">&#9819;</text>
+    <text x="631" y="183">&#9818;</text>
+    <text x="693" y="183">&#9821;</text>
+    <text x="755" y="183">&#9822;</text>
+    <text x="817" y="183">&#9820;</text>
+    <text x="383" y="245">&#9823;</text>
+    <text x="445" y="245">&#9823;</text>
+    <text x="507" y="245">&#9823;</text>
+    <text x="569" y="245">&#9823;</text>
+    <text x="631" y="245">&#9823;</text>
+    <text x="693" y="245">&#9823;</text>
+    <text x="755" y="245">&#9823;</text>
+    <text x="817" y="245">&#9823;</text>
+    <text x="383" y="555">&#9817;</text>
+    <text x="445" y="555">&#9817;</text>
+    <text x="507" y="555">&#9817;</text>
+    <text x="569" y="555">&#9817;</text>
+    <text x="631" y="555">&#9817;</text>
+    <text x="693" y="555">&#9817;</text>
+    <text x="755" y="555">&#9817;</text>
+    <text x="817" y="555">&#9817;</text>
+    <text x="383" y="617">&#9814;</text>
+    <text x="445" y="617">&#9816;</text>
+    <text x="507" y="617">&#9815;</text>
+    <text x="569" y="617">&#9813;</text>
+    <text x="631" y="617">&#9812;</text>
+    <text x="693" y="617">&#9815;</text>
+    <text x="755" y="617">&#9816;</text>
+    <text x="817" y="617">&#9814;</text>
+  </g>
+
+  <rect width="1200" height="800" fill="url(#vignette)"/>
+</svg>
